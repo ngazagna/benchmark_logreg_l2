@@ -1,5 +1,5 @@
 import warnings
-
+import numpy as np
 
 from benchopt import BaseSolver
 from benchopt import safe_import_context
@@ -38,6 +38,10 @@ class Solver(BaseSolver):
             solver=self.solver, C=1 / self.lmbd,
             penalty='l2', fit_intercept=False, tol=1e-15
         )
+
+    def init(self):
+        _, n_features = self.X.shape
+        self.clf.coef_ = np.zeros(n_features)
 
     def run(self, n_iter):
         self.clf.max_iter = n_iter
