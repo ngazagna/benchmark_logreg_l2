@@ -1,4 +1,3 @@
-import time
 import numpy as np
 
 
@@ -14,21 +13,18 @@ class Solver(BaseSolver):
     def set_objective(self, X, y, lmbd):
         self.X, self.y, self.lmbd = X, y, lmbd
 
-    def init(self):
+    def initialization(self):
         # print("---------------------------------- Initializing SGD weights")
         n_samples, n_features = self.X.shape
         self.w = np.zeros(n_features)
 
     def run(self, n_iter):
         n_samples, n_features = self.X.shape
-        # w = np.zeros(n_features)
         w = self.w
-        # self.step_init = 1e3 # TODO: set as parameter ?
 
         # idx_samples = np.random.choice(n_samples, n_iter)
-        # steps = self.step_init / np.sqrt(1 + np.arange(1, n_iter + 1)) # which decreasing rule for the step size ?
+        # steps = self.step_init / np.sqrt(1 + np.arange(1, n_iter + 1))
 
-        t_new = 1
         for i in range(n_iter):
             # When n_iter is known in advance:
             # idx = idx_samples[i]
@@ -39,7 +35,8 @@ class Solver(BaseSolver):
             step = self.step_init / np.sqrt(1 + i)
 
             # SGD step
-            w -= step * self.grad_i_logreg_l2(w, self.X, self.y, self.lmbd, idx)
+            w -= step * self.grad_i_logreg_l2(w,
+                                              self.X, self.y, self.lmbd, idx)
 
         self.w = w
 

@@ -1,5 +1,3 @@
-import numpy as np
-
 from benchopt import BaseSolver
 from benchopt import safe_import_context
 
@@ -24,9 +22,10 @@ class Solver(BaseSolver):
             loss='log', penalty='l2', C=1, alpha=self.lmbd,
             tol=0, permute=False, shrinking=False, warm_start=False)
 
-    def init(self):
-        _, n_features = self.X.shape
-        self.clf.coef_ = np.zeros(n_features)
+    # def initialization(self):
+    #     # _, n_features = self.X.shape
+    #     # self.clf.coef_ = np.zeros(n_features)
+    #     pass
 
     def run(self, n_iter):
         self.clf.max_iter = n_iter
