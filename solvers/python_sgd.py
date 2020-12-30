@@ -14,7 +14,6 @@ class Solver(BaseSolver):
         self.X, self.y, self.lmbd = X, y, lmbd
 
     def initialization(self):
-        # print("---------------------------------- Initializing SGD weights")
         n_samples, n_features = self.X.shape
         self.w = np.zeros(n_features)
 

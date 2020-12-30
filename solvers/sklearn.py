@@ -38,10 +38,6 @@ class Solver(BaseSolver):
             penalty='l2', fit_intercept=False, tol=1e-15
         )
 
-    # def initialization(self):
-    #     _, n_features = self.X.shape
-    #     self.clf.coef_ = np.zeros(n_features)
-
     def run(self, n_iter):
         self.clf.max_iter = n_iter
         self.clf.fit(self.X, self.y)

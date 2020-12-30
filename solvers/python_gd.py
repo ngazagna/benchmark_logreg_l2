@@ -11,7 +11,6 @@ class Solver(BaseSolver):
         self.X, self.y, self.lmbd = X, y, lmbd
 
     def initialization(self):
-        # print("---------------------------------- Initializing GD weights")
         n_samples, n_features = self.X.shape
         self.w = np.zeros(n_features)
         self.step = self._compute_step_size()
