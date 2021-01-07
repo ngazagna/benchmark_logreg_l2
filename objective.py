@@ -9,7 +9,7 @@ class Objective(BaseObjective):
 
     parameters = {
         'fit_intercept': [False],
-        'lmbd': [1., 0.01]
+        'lmbd': [1]
     }
 
     def __init__(self, lmbd=.1, fit_intercept=False):
