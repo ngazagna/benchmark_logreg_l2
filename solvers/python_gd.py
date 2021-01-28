@@ -18,7 +18,6 @@ class Solver(BaseSolver):
     def _compute_step_size(self):
         L = (np.linalg.norm(self.X) ** 2 / 4) + self.lmbd
         step = 1. / L
-        # print("step size GD: ", step)
         return step
 
     def run(self, n_iter):

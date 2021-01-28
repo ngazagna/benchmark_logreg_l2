@@ -21,15 +21,7 @@ class Solver(BaseSolver):
         n_samples, n_features = self.X.shape
         w = self.w
 
-        # idx_samples = np.random.choice(n_samples, n_iter)
-        # steps = self.step_init / np.sqrt(1 + np.arange(1, n_iter + 1))
-
         for i in range(n_iter):
-            # When n_iter is known in advance:
-            # idx = idx_samples[i]
-            # step = steps[i]
-
-            # When n_iter is NOT known in advance:
             idx = np.random.choice(n_samples)
             step = self.step_init / np.sqrt(1 + i)
 

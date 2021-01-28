@@ -27,7 +27,6 @@ class Solver(BaseSolver):
     def _compute_step_size(self):
         Lmax = np.max(np.sum(self.X ** 2, axis=1)) / 4 + self.lmbd
         step = 1. / Lmax
-        # print("step size SAGA: ", step)
         return step
 
     def run(self, n_iter):
